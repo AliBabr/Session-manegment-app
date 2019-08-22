@@ -1134,6 +1134,7 @@ html[dir="rtl"] .card.card-chart {
 }
 
 html[dir="rtl"] .nav-tabs .nav-item .material-icons {
+  color: white;
   margin: -1px 0 0 5px;
 }
 

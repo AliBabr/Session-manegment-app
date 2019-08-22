@@ -15,6 +15,7 @@
  *= require font-awesome
  *= require material/material-dashboard.css
  *= require material/demo.css
+ *= require custom/custom.css
  *= require_tree .
  *= require_self
  */
