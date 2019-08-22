@@ -41,9 +41,7 @@
 .offline-doc .page-header .container {
   z-index: 3;
 }
-.sidebar-image{
-  background-image: url('b.jpg') !important;
-}
+
 .offline-doc .page-header:after {
   background-color: rgba(0, 0, 0, 0.5);
   content: "";
