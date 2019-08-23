@@ -3,6 +3,7 @@ devise_for :users
 devise_scope :user do
   authenticated :user do
     root 'dashboard#index', as: :authenticated_root
+    get '/maneger/new', :to => 'maneger#new'
   end
 
   unauthenticated do
