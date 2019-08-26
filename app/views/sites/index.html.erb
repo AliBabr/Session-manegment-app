@@ -31,65 +31,65 @@
 
 <div class="content">
     <div class="container-fluid">
-    <% @site.map do |s| %>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header card-header-primary">
-              <h4 class="card-title "><%= s.name%></h4>
-              <p class="card-category"><%= s.contact%></p>
-              <p class="card-category"><%= s.address%></p>
-              <a href="/manegers/new?id=<%=s.id%>" id="requestthis" class="btn btn-primary add-manger-button">Add Maneger</a>
-            </div>
+      <% @site.map do |s| %>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title "><%= s.name%></h4>
+                <p class="card-category"><%= s.contact%></p>
+                <p class="card-category"><%= s.address%></p>
+                <a href="/manegers/new?id=<%=s.id%>" id="requestthis" class="btn btn-primary add-manger-button">Add Maneger</a>
+              </div>
 
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class=" text-primary">
-                    <th>
-                      ID
-                    </th>
-                    <th>
-                      First Name
-                    </th>
-                    <th>
-                      Last Name
-                    </th>
-                    <th>
-                      Email
-                    </th>
-                    <th>
-                      Password
-                    </th>
-                  </thead>
-                  <tbody>
-                  <% s.users.map do |u| %>
-                    <tr>
-                      <td>
-                        <%= u.id%>
-                      </td>
-                      <td>
-                        <%= u.first_name%>
-                      </td>
-                      <td>
-                        <%= u.last_name%>
-                      </td>
-                      <td>
-                        <%= u.email%>
-                      </td>
-                      <td class="text-primary">
-                        <%= u.encrypted_password%>
-                      </td>
-                    </tr>
-                  <%end%>
-                  </tbody>
-                </table>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        ID
+                      </th>
+                      <th>
+                        First Name
+                      </th>
+                      <th>
+                        Last Name
+                      </th>
+                      <th>
+                        Email
+                      </th>
+                      <th>
+                        Password
+                      </th>
+                    </thead>
+                    <tbody>
+                    <% s.users.map do |u| %>
+                      <tr>
+                        <td>
+                          <%= u.id%>
+                        </td>
+                        <td>
+                          <%= u.first_name%>
+                        </td>
+                        <td>
+                          <%= u.last_name%>
+                        </td>
+                        <td>
+                          <%= u.email%>
+                        </td>
+                        <td class="text-primary">
+                          <%= u.encrypted_password%>
+                        </td>
+                      </tr>
+                    <%end%>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <%end%>
+         </div>
+        <%end%>
     </div>
   </div>
 
