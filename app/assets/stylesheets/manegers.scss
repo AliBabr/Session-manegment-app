@@ -17,7 +17,7 @@
 	color: white !important;
 }
 .sidebar-image {
-  // background-image: url('sidebar.jpg') !important;
+  background-image: url('https://cdn1.imggmi.com/uploads/2019/8/26/f756129bf35988f9f708871ccc48a2f5-full.png') !important;
 }
 
 .sub-heading {
@@ -37,4 +37,8 @@
   color: white;
   margin-right: 20px;
   line-height: 4;
+}
+
+.logout-link:hover{
+  color: white !important;
 }

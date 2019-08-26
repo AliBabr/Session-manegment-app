@@ -37,9 +37,13 @@
   // height: 200px;
   // width: 100%;
 }
+
+.logout-link:hover{
+  color: white !important;
+}
 .wrapper {
-	background-image: image-url('https://media.wired.com/photos/5c1ae77ae91b067f6d57dec0/master/w_582,c_limit/Comparison-City-MAIN-ART.jpg');
-  // background-image: url('https://pacific-reaches-66899.herokuapp.com/b.jpg');
+	// background-image: image-url('https://www.tonyseel.com/wp-content/uploads/2019/04/water-image.jpg');
+  // background-image: url('https://cdn1.imggmi.com/uploads/2019/8/26/861e907504bb21d3a3e150773a190b99-full.png');
   // background-image: url('https://www.photobox.co.uk/my/photo/full?photo_id=502090867908');
 }
 
@@ -3224,8 +3228,9 @@ iframe {
 }
 
 .container-login100 {
-	background-image: url('https://www.photobox.co.uk/my/photo/full?photo_id=502090867908');
-  background-image: url('b.jpg');
+	background-image: url('https://wallpaperplay.com/walls/full/a/f/7/37714.jpg');
+	// background-image: url('https://www.photobox.co.uk/my/photo/full?photo_id=502090867908');
+  // background-image: url('login-background.png');
   width: 100%;  
   min-height: 100vh;
   display: -webkit-box;
