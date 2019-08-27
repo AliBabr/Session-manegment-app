@@ -1,11 +1,11 @@
 <div class="navbar-header">
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete  ,class: "logout-link" %>
-  <h1 class="navbar-heading">Manegers Manegement</h1>
-  <p class="sub-heading">Add new maneger</p>
+  <h1 class="navbar-heading">Managers Manegement</h1>
+  <p class="sub-heading">Add new manager</p>
 </div>
 
 
-
+<%# 
 <!DOCTYPE html>
 <html>
   <head>
@@ -179,10 +179,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLra2grvHkh_TIrsdWleWNQpixnTsYeCQ&libraries=places&callback=initAutocomplete"
          async defer></script>
   </body>
-</html>
+</html> %>
 
 
-
-
-<%= link_to 'Sign up', new_user_registration_path %>
 <%= render 'manegers/admin' %>

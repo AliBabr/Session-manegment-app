@@ -33,12 +33,12 @@
   line-height: 4;
 }
 .sidebar-image {
-
-  background-image: url('https://cdn1.imggmi.com/uploads/2019/8/26/4d09d306b4b6ea7ccde0e725e33ddc1c-full.png') !important;
+  // opacity: 0.4 !important;
+  background-image: url('https://i.ibb.co/QdrQz7T/sidebar-backgroung.png') !important;
 }
 .sidebar {
   // opacity: 0.4 !important;
-  background-image: url('https://cdn1.imggmi.com/uploads/2019/8/26/4d09d306b4b6ea7ccde0e725e33ddc1c-full.png') !important;
+  background-image: url('https://i.ibb.co/QdrQz7T/sidebar-backgroung.png') !important;
 }
 .login-page {
   // height: 200px;
@@ -3235,7 +3235,8 @@ iframe {
 }
 
 .container-login100 {
-	background-image: url('https://wallpaperplay.com/walls/full/a/f/7/37714.jpg') !important;
+	background-size: 100%;
+	background-image: url('https://i.ibb.co/nQj2S1h/login-bacgroundd.png') !important;
   width: 100%;
   min-height: 100vh;
   display: -webkit-box;

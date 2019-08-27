@@ -2,6 +2,7 @@ class ManegersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
+    @user = current_user
   end
   def new
     @site = Site.find(params[:id])
