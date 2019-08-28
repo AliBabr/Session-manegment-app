@@ -1,0 +1,13 @@
+
+= form_for :sites, url: search_sites_path, method: 'POST' do |form|
+  = form.collection_select :name, Site.all, :id, :name, placeholder: "Choose a facility", include_blank: true
+  = form.submit 'Search', :class => 'btn btn-primary search-button'
+  
+  
+javascript:
+  $( "#sites_name" ).select2({
+    placeholder: "Search or Select site",
+    allowClear: true,
+    theme: "bootstrap",
+    theme: "classic"
+  });

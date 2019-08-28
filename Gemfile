@@ -14,6 +14,8 @@ gem 'bootstrap-sass'
 gem "jquery-rails"
 gem 'popper_js', '~> 1.12.9'
 gem 'font-awesome-rails'
+gem "slim-rails"
+gem "select2-rails"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

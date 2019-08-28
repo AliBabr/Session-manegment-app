@@ -25,15 +25,15 @@
 
 <div class="content">
     <div class="container-fluid">
-      <% @site.map do |s| %>
+
         <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title "><%= s.name%></h4>
-                <p class="card-category"><%= s.contact%></p>
-                <p class="card-category"><%= s.address%></p>
-                <a href="/manegers/new?id=<%=s.id%>" id="requestthis" class="btn btn-primary add-manger-button">Add Maneger</a>
+                <h4 class="card-title "><%= @site.name%></h4>
+                <p class="card-category"><%= @site.contact%></p>
+                <p class="card-category"><%= @site.address%></p>
+                <a href="/manegers/new?id=<%=@site.id%> id="requestthis" class="btn btn-primary add-manger-button">Add Maneger</a> %>
               </div>
 
               <div class="card-body">
@@ -57,7 +57,7 @@
                       </th>
                     </thead>
                     <tbody>
-                    <% s.users.map do |u| %>
+                    <% @site.users.map do |u| %>
                       <tr>
                         <td>
                           <%= u.id%>
@@ -83,7 +83,7 @@
             </div>
           </div>
          </div>
-        <%end%>
+
     </div>
   </div>
 

@@ -13,6 +13,8 @@
  
 
  *= require font-awesome
+ *= require select2
+ *= require select2-bootstrap
  *= require material/material-dashboard.css
  *= require material/demo.css
  *= require custom/custom.css

@@ -16,6 +16,7 @@ end
   resources :sites do
     collection do
       get :new_site_bY_map
+      post :search
     end
   end
   resources :notifications

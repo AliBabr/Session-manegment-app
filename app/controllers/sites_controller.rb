@@ -1,7 +1,6 @@
 class SitesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    @user = current_user
     @site = Site.all
   end
 
@@ -16,5 +15,15 @@ class SitesController < ApplicationController
   end
   def new_site_bY_map
   
+  end
+  def show
+    @site = Site.all
+  end
+  def search
+    if params[:sites][:name].present?
+      @site = Site.find(params[:sites][:name].to_i)
+    else
+      redirect_to action: 'index'
+    end
   end
 end
