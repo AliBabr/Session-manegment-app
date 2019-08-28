@@ -13,7 +13,11 @@ end
   # get 'page/index'
   # root to: 'pages#home'
   resources :manegers
-  resources :sites
+  resources :sites do
+    collection do
+      get :new_site_bY_map
+    end
+  end
   resources :notifications
   resources :support
   resources :dashboard

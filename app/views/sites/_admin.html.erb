@@ -19,12 +19,12 @@
               <div class="col-3">
                 <div class = "row">
                   <div class="user-name">
-                    <%=@user.first_name + ' ' + @user.last_name%>
+                    <%=current_user.first_name + ' ' + current_user.last_name%>
                   </div>
                 </div>
                 <div class= 'row'>
                   <div class='user-email'>
-                    <%=@user.email%>
+                    <%=current_user.email%>
                   </div>
                 </div>
               </div>

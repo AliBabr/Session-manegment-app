@@ -13,6 +13,8 @@ class SitesController < ApplicationController
     redirect_to action: "index"
   end
   def show
-    byebug
+  end
+  def new_site_bY_map
+  
   end
 end
