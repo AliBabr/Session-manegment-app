@@ -28,7 +28,9 @@
 }
 .add-manger-button{
   background: #1f9e1f  !important;
-  float: right
+  float: right;
+  top: -57px;
+  margin-bottom: -40px;
 }
 
 .form-control, .is-focused .form-control {
@@ -104,6 +106,6 @@
   left: 480px !important;
 }
 .search-button {
-  margin-left: 455px !important;
+  margin-left: 440px !important;
   // top: -2px;
 }

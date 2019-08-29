@@ -1,15 +1,97 @@
-<% if current_user%>
-      <div class="navbar-header">
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete  ,class: "logout-link" %>
-        <h1 class="navbar-heading">Manager Manegement</h1>
-        <p class="sub-heading">Managers</p>
-      </div>
-      <!-- Navbar -->
-        
-<%= render 'manegers/admin' %>
+<div class="navbar-header">
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete  ,class: "logout-link" %>
+  <h1 class="navbar-heading">Manager Manegement</h1>
+  <p class="sub-heading">Managers</p>
+</div>
 
-<%# <%= link_to 'Sign out', destroy_user_session_path, method: :delete %> %>
-<% else%>
-<%= link_to 'Sign up', new_user_registration_path %>
-<%= link_to 'Sign in', new_user_session_path %>
-<%end%>
+
+
+  <div class="search-seaction">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-8">
+            <div class="input-group no-border">
+             <%= render 'sites/search' %>
+            </div>
+        </div>
+        <div class="col-4">
+          <div class="add-site-button">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">All Manegers</h4>
+
+            </div>
+
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      ID
+                    </th>
+                    <th>
+                      First Name
+                    </th>
+                    <th>
+                      Last Name
+                    </th>
+                    <th>
+                      Email
+                    </th>
+                    <th class= "actions-links">
+                      Actions
+                    </th>
+                  </thead>
+                  <tbody>
+                    <% @site.map do |s| %>
+                      <% s.users.map do |u| %>
+                        <tr>
+                          <td>
+                            <%= u.id%>
+                          </td>
+                          <td>
+                            <%= u.first_name + " "+ u.last_name%>
+                          </td>
+                          <td>
+                            <%= s.name%>
+                          </td>
+                          <td>
+                            <%= u.email%>
+                          </td>
+                          <td class="text-primary">
+                          <a href="">
+                            <img src="https://i.ibb.co/hFHxCxN/edit.png" height="40px" width="40px" alt="edit" border="0">
+                          </a>
+                          <a href="">
+                            <img src="https://i.ibb.co/QK8ycft/delete.png" height="45px" width="45px" alt="delete" border="0">
+                          </a>
+                
+                          <%# <%= u.encrypted_password    %>
+                          </td>
+                        </tr>
+                      <%end%>
+                    <%end%>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+
+
+
+<%= render 'manegers/admin' %>

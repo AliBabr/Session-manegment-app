@@ -9,7 +9,7 @@
 			<div class="wrap-login100">
         <div class="login-form">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "login100-form validate-form" ) do |f| %>
-        
+
 				<%# <form class="login100-form validate-form"> %>
 					<span class="login100-form-title">
 						Please Login to your Account
@@ -51,6 +51,11 @@
 					</div>
           <%end%>
 				<%# </form> %>
+					<div class="validation-error">
+						<% if alert %>
+							<p class="alert alert-danger validation-error"><%= alert %></p>
+						<% end %>
+					</div>
 			</div>
 		</div>
 	</div>

@@ -52,8 +52,8 @@
                       <th>
                         Email
                       </th>
-                      <th>
-                        Password
+                      <th class= "actions-links">
+                        Actions
                       </th>
                     </thead>
                     <tbody>
@@ -72,7 +72,14 @@
                           <%= u.email%>
                         </td>
                         <td class="text-primary">
-                          <%= u.encrypted_password%>
+                        <a href="">
+                          <img src="https://i.ibb.co/hFHxCxN/edit.png" height="40px" width="40px" alt="edit" border="0">
+                        </a>
+                        <a href="">
+                          <img src="https://i.ibb.co/QK8ycft/delete.png" height="45px" width="45px" alt="delete" border="0">
+                        </a>
+              
+                        <%# <%= u.encrypted_password    %>
                         </td>
                       </tr>
                     <%end%>

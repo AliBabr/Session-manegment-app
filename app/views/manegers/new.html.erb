@@ -60,6 +60,16 @@
                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
                 <div class="clearfix"></div>
               </form>
+              <% if @user.present? %>
+                <% if @user.errors.any? %>
+                  <% @user.errors.full_messages.each do |message| %>
+                    <li class="errors"><%= message %></li>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <% if @error.present? %>
+                <li class="errors"><%= @error %></li>
+              <% end %>
             </div>
           </div>
         </div>
