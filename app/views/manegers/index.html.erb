@@ -29,7 +29,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title ">All Manegers</h4>
+              <h4 class="card-title ">All Managers</h4>
 
             </div>
 
@@ -54,11 +54,12 @@
                     </th>
                   </thead>
                   <tbody>
+                    <%@index = 1%>
                     <% @site.map do |s| %>
-                      <% s.users.map do |u| %>
+                      <% s.users.each_with_index do |u,i| %>
                         <tr>
                           <td>
-                            <%= u.id%>
+                            <%= @index%>
                           </td>
                           <td>
                             <%= u.first_name + " "+ u.last_name%>
@@ -76,6 +77,7 @@
                           <a href="">
                             <img src="https://i.ibb.co/QK8ycft/delete.png" height="45px" width="45px" alt="delete" border="0">
                           </a>
+                          <%@index = @index + 1%>
                 
                           <%# <%= u.encrypted_password    %>
                           </td>

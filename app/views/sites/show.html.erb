@@ -33,16 +33,14 @@
                 <h4 class="card-title "><%= s.name%></h4>
                 <p class="card-category"><%= s.contact%></p>
                 <p class="card-category"><%= s.address%></p>
-                <a href="/manegers/new?id=<%=s.id%>" id="requestthis" class="btn btn-primary add-manger-button">Add Maneger</a>
+                <a href="/manegers/new?id=<%=s.id%>" id="requestthis" class="btn btn-primary add-manger-button">Add Manager</a>
               </div>
 
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <th>
-                        ID
-                      </th>
+
                       <th>
                         First Name
                       </th>
@@ -52,16 +50,13 @@
                       <th>
                         Email
                       </th>
-                      <th>
-                        Password
+                      <th class= "actions-links">
+                        Actions
                       </th>
                     </thead>
                     <tbody>
                     <% s.users.map do |u| %>
                       <tr>
-                        <td>
-                          <%= u.id%>
-                        </td>
                         <td>
                           <%= u.first_name%>
                         </td>
@@ -72,7 +67,14 @@
                           <%= u.email%>
                         </td>
                         <td class="text-primary">
-                          <%= u.encrypted_password%>
+                        <a href="">
+                          <img src="https://i.ibb.co/hFHxCxN/edit.png" height="40px" width="40px" alt="edit" border="0">
+                        </a>
+                        <a href="">
+                          <img src="https://i.ibb.co/QK8ycft/delete.png" height="45px" width="45px" alt="delete" border="0">
+                        </a>
+              
+                        <%# <%= u.encrypted_password    %>
                         </td>
                       </tr>
                     <%end%>
