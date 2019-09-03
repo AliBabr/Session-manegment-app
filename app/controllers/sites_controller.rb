@@ -11,13 +11,24 @@ class SitesController < ApplicationController
     Site.create(name: params[:name], contact: params[:contact], address: params[:address])
     redirect_to action: "index"
   end
-  def show
-  end
+
   def new_site_bY_map
   
   end
   def show
     @site = Site.all
+  end
+  def update_site
+    Site.find(params[:id]).update!(name: params[:name], contact: params[:contact], address: params[:address])
+    redirect_to action: "index"
+  end
+  def delete_site
+    Site.find(params[:id]).destroy!
+    redirect_to :controller => 'sites', :action => 'index'
+  end
+
+  def edit
+    @site = Site.find(params[:id])
   end
   def search
     if params[:sites][:name].present?

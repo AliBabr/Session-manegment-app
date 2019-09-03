@@ -1,0 +1,76 @@
+<div class="navbar-header">
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete  ,class: "logout-link" %>
+  <h1 class="navbar-heading">Sites Manegement</h1>
+  <p class="sub-heading">New Maneger</p>
+</div>
+
+
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title "><%= @site.name%></h4>
+              <p class="card-category"><%= @site.contact%></p>
+              <p class="card-category"><%= @site.address%></p>
+              <p class="card-category"></p>
+            </div>
+            <div class="card-body">
+              <form action="/manegers/<%=@user.id%>/update_manager?site_id=<%=@site.id%>" method="POST">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">First Name</label>
+                      <input type="text" name="first_name" value = <%=@user.first_name%> class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Last Name</label>
+                      <input type="text" name="last_name" value = <%=@user.last_name%> class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Email</label>
+                      <input type="text" name="email" value = <%=@user.email%> class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Password</label>
+                      <input type="password" name="password" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Confirm Password</label>
+                      <input type="password" name="confirm_password" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+              <% if @user.present? %>
+                <% if @user.errors.any? %>
+                  <% @user.errors.full_messages.each do |message| %>
+                    <li class="errors"><%= message %></li>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <% if @error.present? %>
+                <li class="errors"><%= @error %></li>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+  <%= render 'sites/admin' %>

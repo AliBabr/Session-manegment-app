@@ -12,11 +12,20 @@ devise_scope :user do
 end
   # get 'page/index'
   # root to: 'pages#home'
-  resources :manegers
+  resources :manegers do 
+    member do
+      post :update_manager
+      delete :delete_manager
+    end
+  end
   resources :sites do
     collection do
       get :new_site_bY_map
       post :search
+    end
+    member do
+      post :update_site
+      delete :delete_site
     end
   end
   resources :notifications

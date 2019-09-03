@@ -31,6 +31,11 @@
             <div class="card">
               <div class="card-header card-header-primary">
                 <h4 class="card-title "><%= s.name%></h4>
+                 <a href = "sites/<%=s.id%>/edit">
+                    <img src="https://i.ibb.co/3d8X3kW/edit1.png" height="20px" width="20px" alt="edit" border="0">
+                  </a>
+                <%= link_to '<img src="https://i.ibb.co/px82bhm/del.png" height="20px" width="20px" alt="delete" border="0">'.html_safe, delete_site_site_path(s.id), class: 'delete-action', data: { confirm: 'Are you sure?', method: :delete } %>
+
                 <p class="card-category"><%= s.contact%></p>
                 <p class="card-category"><%= s.address%></p>
                 <a href="/manegers/new?id=<%=s.id%>" id="requestthis" class="btn btn-primary add-manger-button">Add Manager</a>
@@ -66,14 +71,13 @@
                           <%= u.email%>
                         </td>
                         <td class="text-primary">
-                        <a href="">
+                        
+                        <a href = "manegers/<%=u.id%>/edit?site_id=<%=s.id%>">
                           <img src="https://i.ibb.co/hFHxCxN/edit.png" height="40px" width="40px" alt="edit" border="0">
                         </a>
-                        <a href="">
-                          <img src="https://i.ibb.co/QK8ycft/delete.png" height="45px" width="45px" alt="delete" border="0">
-                        </a>
-              
-                        <%# <%= u.encrypted_password    %>
+
+                        <%= link_to '<img src="https://i.ibb.co/QK8ycft/delete.png" height="45px" width="45px" alt="delete" border="0">'.html_safe, delete_manager_maneger_path(u.id), class: 'delete-action', data: { confirm: 'Are you sure?', method: :delete } %>
+
                         </td>
                       </tr>
                     <%end%>
