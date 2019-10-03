@@ -18,7 +18,7 @@
 }
 .sub-heading {
   color: white;
-  margin-left: 65px;
+  margin-left: 60px;
   MARGIN-TOP: -16PX;
 }
 .container-fluid {
@@ -35,16 +35,14 @@
   line-height: 4;
 }
 .sidebar-image {
-  // opacity: 0.4 !important;
-  background-image: url('https://i.ibb.co/QdrQz7T/sidebar-backgroung.png') !important;
+
+	background-image: url('https://i.ibb.co/QdrQz7T/sidebar-backgroung.png') !important;
+	background-size: 260px 920px;
 }
 .sidebar {
   // opacity: 0.4 !important;
-  background-image: url('https://i.ibb.co/QdrQz7T/sidebar-backgroung.png') !important;
-}
-.login-page {
-  // height: 200px;
-  // width: 100%;
+	background-image: url('https://i.ibb.co/QdrQz7T/sidebar-backgroung.png') !important;
+	background-size: 260px 920px;
 }
 
 .logout-link:hover{

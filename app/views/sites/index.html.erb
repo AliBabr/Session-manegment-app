@@ -8,37 +8,43 @@
   <div class="search-seaction">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-8">
-            <div class="input-group no-border">
-             <%= render 'sites/search' %>
-            </div>
-        </div>
-        <div class="col-4">
-          <div class="add-site-button">
-            <a href="/sites/new" class="btn btn-primary btn-round">Add Site</a>
-          </div>
+        <div class="col-12">
+          <%= render 'sites/search' %>
         </div>
       </div>
     </div>
   </div>
-   
+
+
 
 <div class="content">
     <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <a href="/sites/new" class="btn btn-primary btn-round pull-right mr-5">Add Site</a>
+        </div>
+      </div>
       <% @site.map do |s| %>
         <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title "><%= s.name%></h4>
-                 <a href = "sites/<%=s.id%>/edit">
-                    <img src="https://i.ibb.co/3d8X3kW/edit1.png" height="20px" width="20px" alt="edit" border="0">
-                  </a>
-                <%= link_to '<img src="https://i.ibb.co/px82bhm/del.png" height="20px" width="20px" alt="delete" border="0">'.html_safe, delete_site_site_path(s.id), class: 'delete-action', data: { confirm: 'Are you sure?', method: :delete } %>
-
+                <div class='row'>
+                  <div class='col-6'>
+                    <div class='row'>
+                      <h4 class="card-title ml-3 "><%= s.name%></h4>
+                      <a class="ml-2" href = "sites/<%=s.id%>/edit">
+                        <img src="https://i.ibb.co/3d8X3kW/edit1.png" height="20px" width="20px" alt="edit" border="0">
+                      </a>
+                      <%= link_to '<img src="https://i.ibb.co/px82bhm/del.png" height="20px" width="20px" alt="delete" border="0">'.html_safe, delete_site_site_path(s.id), class: 'delete-action ml-1', data: { confirm: 'Are you sure?', method: :delete } %>
+                    </div>
+                  </div>
+                  <div class="col-6">  
+                    <a href="/manegers/new?id=<%=s.id%>" id="requestthis" class="btn btn-primary add-manger-button">Add Manager</a>
+                  </div>
+                </div>
                 <p class="card-category"><%= s.contact%></p>
                 <p class="card-category"><%= s.address%></p>
-                <a href="/manegers/new?id=<%=s.id%>" id="requestthis" class="btn btn-primary add-manger-button">Add Manager</a>
               </div>
 
               <div class="card-body">
@@ -46,10 +52,7 @@
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
-                        First Name
-                      </th>
-                      <th>
-                        Last Name
+                        Name
                       </th>
                       <th>
                         Email
@@ -62,10 +65,7 @@
                     <% s.users.map do |u| %>
                       <tr>
                         <td>
-                          <%= u.first_name%>
-                        </td>
-                        <td>
-                          <%= u.last_name%>
+                          <%= u.first_name + " " + u.last_name %> 
                         </td>
                         <td>
                           <%= u.email%>

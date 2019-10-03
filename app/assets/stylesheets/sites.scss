@@ -19,7 +19,7 @@
 }
 .sub-heading {
   color: white;
-  margin-left: 65px;
+  margin-left: 60px;
   MARGIN-TOP: -16PX;
 }
 .btn-primary {
@@ -29,7 +29,6 @@
 .add-manger-button{
   background: #1f9e1f  !important;
   float: right;
-  top: -57px;
   margin-bottom: -40px;
 }
 
@@ -62,7 +61,7 @@
 
 .search-seaction{
   margin-top: 58px;
-  margin-left: 120px;
+  margin-left: 50px;
 }
 
 .add-site-button {
@@ -106,6 +105,10 @@
   left: 480px !important;
 }
 .search-button {
-  margin-left: 430px !important;
-  // top: -2px;
+  top: -6px;
+  margin-left: -40px;
+}
+
+.main-panel>.content {
+  margin-top: 0px !important;
 }

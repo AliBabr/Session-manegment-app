@@ -1,7 +1,10 @@
 
 = form_for :sites, url: search_sites_path, method: 'POST' do |form|
-  = form.collection_select :name, Site.all, :id, :name, placeholder: "Choose a facility", include_blank: true
-  = form.submit 'Search', :class => 'btn btn-primary search-button'
+  .row
+    .col-8
+      = form.collection_select :name, Site.all, :id, :name, placeholder: "Choose a facility", include_blank: true
+    .col-4
+      = form.submit 'Search', :class => 'btn btn-primary search-button'
   
   
 javascript:
