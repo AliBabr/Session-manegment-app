@@ -1,26 +1,112 @@
-<div class="navbar-header">
-  <%= link_to 'Sign out', destroy_user_session_path, method: :delete  ,class: "logout-link" %>
-  <h1 class="navbar-heading">Sites Manegement</h1>
-  <p class="sub-heading">New Site</p>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Places Search Box</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 500px;
+      }
+      .submit-button {
+        margin-top: 18px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #description {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+      }
 
-<div class="search-seaction">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-8">
-          
-          </form>
-        </div>
-        <div class="col-4">
-          <div class="add-site-button">
-            <a href="/sites/new_site_bY_map" class="btn btn-primary btn-round">Add New Site By Map</a>
-          </div>
-        </div>
-      </div>
+      #infowindow-content .title {
+        font-weight: bold;
+      }
+
+      #infowindow-content {
+        display: none;
+      }
+
+      #map #infowindow-content {
+        display: inline;
+      }
+
+      .pac-card {
+        margin: 10px 10px 0 0;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        font-family: Roboto;
+      }
+
+      #pac-container {
+        padding-bottom: 12px;
+        /* margin-right: 12px; */
+      }
+
+      .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+      }
+
+      .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 80px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 640px;
+        margin-top: 15px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+      #map{
+        margin-top: 20px;
+      }
+
+      #title {
+        color: #fff;
+        background-color: #4d90fe;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 6px 12px;
+      }
+      #target {
+        width: 345px;
+      }
+      .submit-button {
+        margin-left: 10px;
+        top: -10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar-header">
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete  ,class: "logout-link" %>
+      <h1 class="navbar-heading">Sites Manegement</h1>
+      <p class="sub-heading">New Site</p>
     </div>
-  </div>
 
-<div class="content">
+  <div class="content">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
@@ -35,13 +121,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Name</label>
-                      <input type="text" name="name" class="form-control">
+                      <input type="text" name="name" class="form-control name">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="bmd-label-floating">Phone No</label>
-                      <input type="text" name="contact" class="form-control">
+                      <input type="text" name="contact" class="form-control phone_no">
                     </div>
                   </div>
                 </div>
@@ -49,18 +135,126 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label class="bmd-label-floating">Adress</label>
-                      <input type="text" name="address" class="form-control">
+                      <input type="text" name="address" class="form-control address">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   
                 </div>
-                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                <button type="submit" class="btn btn-primary pull-right">Confirm</button>
                 <div class="clearfix"></div>
               </form>
             </div>
           </div>
         </div>
 
-  <%= render 'sites/admin' %>
+      <div class="row">
+        <div class="col-12">
+          <form class="navbar-form">
+            <div class="input-group no-border">
+              <input id="pac-input" class="controls form-control" type="text" placeholder="Search here">
+              <button type="submit" class="btn btn-white btn-round btn-just-icon submit-button">
+                <i class="material-icons">search</i>
+                <div class="ripple-container"></div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+   
+
+
+    <%# <input id="pac-input" class="controls form-control" type="text" placeholder="Search Box"> %>
+    <div class="container-fluid p-0">
+      <div id="map" ></div>
+    <div>
+    <script>
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initAutocomplete() {
+        console.log("map inti")
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13,
+          mapTypeId: 'roadmap'
+        });
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          $(".name").focus().val(places[0]["name"])
+          $(".address").focus().val(places[0]["formatted_address"])
+          $(".phone_no").focus().val(places[0]["international_phone_number"])
+
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7rM2J5pDWxQYtZppEOV7P17CsaveY84k&libraries=places&callback=initAutocomplete"
+         async defer></script>
+
+
+    <%= render 'sites/admin' %>
+  </body>
+</html>

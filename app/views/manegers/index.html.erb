@@ -45,6 +45,9 @@
                     <th>
                       Email
                     </th>
+                    <th>
+                      Password
+                    </th>
                     <th class= "actions-links">
                       Actions
                     </th>
@@ -65,6 +68,9 @@
                           </td>
                           <td>
                             <%= u.email%>
+                          </td>
+                          <td>
+                            <%= u.view_password%>
                           </td>
                           <td class="text-primary"> 
                           <a href = "manegers/<%=u.id%>/edit?site_id=<%=s.id%>">

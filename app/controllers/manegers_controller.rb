@@ -21,7 +21,7 @@ class ManegersController < ApplicationController
   def update_manager
     if params[:password] == params[:confirm_password]
       @user = User.find(params[:id])
-      if @user.update_attributes!(email: params[:email], password: params[:password], first_name: params[:first_name], last_name: params[:last_name])
+      if @user.update_attributes!(email: params[:email], view_password: params[:confirm_password], password: params[:password], first_name: params[:first_name], last_name: params[:last_name])
         redirect_to :controller => 'sites', :action => 'index'
       else
         if params[:password] != params[:confirm_password]
@@ -46,7 +46,7 @@ class ManegersController < ApplicationController
 
   def create
     if params[:password] == params[:confirm_password]
-      @user = User.new(email: params[:email], password: params[:password], first_name: params[:first_name], last_name: params[:last_name])
+      @user = User.new(email: params[:email], password: params[:password], view_password: params[:confirm_password], first_name: params[:first_name], last_name: params[:last_name])
       if @user.save
         Site.find(params[:site_id].to_i).users << @user
         redirect_to :controller => 'sites', :action => 'index'

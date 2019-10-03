@@ -42,8 +42,14 @@
                   <a href="/manegers/new?id=<%=@site.id%>" id="requestthis" class="btn btn-primary add-manger-button">Add Manager</a>
                 </div>
               </div>
-              <p class="card-category"><%= @site.contact%></p>
-              <p class="card-category"><%= @site.address%></p>
+              <div class="row">
+                <a class='ml-3 mr-2'><img src="https://i.ibb.co/6v024Dc/phone.png" width="20px" height="18px" alt="download" border="0"></a>
+                <p class="card-category"><%= @site.contact%></p>
+              </div>
+              <div class="row">
+                <a class="ml-3 mr-2"><img src="https://i.ibb.co/4FwmLzH/location-icon.png" width="20px" height="18px"width="20px" height="18px" alt="location-icon" border="0"></a>
+                <p class="card-category"><%= @site.address%></p>
+              </div>
             </div>
 
             <div class="card-body">

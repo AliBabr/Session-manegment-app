@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_210809) do
+ActiveRecord::Schema.define(version: 2019_10_03_192142) do
+
+  create_table "locations", force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sites", force: :cascade do |t|
     t.string "name"
@@ -18,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_08_22_210809) do
     t.string "contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "sites_users", id: false, force: :cascade do |t|
@@ -36,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_08_22_210809) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "admin", default: false
+    t.string "view_password"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

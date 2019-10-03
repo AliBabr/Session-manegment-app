@@ -8,7 +8,10 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 700px;
+        height: 500px;
+      }
+      .submit-button {
+        margin-top: 18px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -47,7 +50,7 @@
 
       #pac-container {
         padding-bottom: 12px;
-        margin-right: 12px;
+        /* margin-right: 12px; */
       }
 
       .pac-controls {
@@ -66,14 +69,18 @@
         font-family: Roboto;
         font-size: 15px;
         font-weight: 300;
-        margin-left: 12px;
+        margin-left: 80px;
         padding: 0 11px 0 13px;
         text-overflow: ellipsis;
-        width: 400px;
+        width: 640px;
+        margin-top: 15px;
       }
 
       #pac-input:focus {
         border-color: #4d90fe;
+      }
+      #map{
+        margin-top: 20px;
       }
 
       #title {
@@ -99,11 +106,51 @@
       <p class="sub-heading">New Site</p>
     </div>
 
-
-  <div class="search-seaction">
+  <div class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-8">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Add new site</h4>
+              <p class="card-category"></p>
+            </div>
+            <div class="card-body">
+              <form action="/sites" method="POST">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Name</label>
+                      <input type="text" name="name" class="form-control name">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Phone No</label>
+                      <input type="text" name="contact" class="form-control phone_no">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Adress</label>
+                      <input type="text" name="address" class="form-control address">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      <div class="row">
+        <div class="col-12">
           <form class="navbar-form">
             <div class="input-group no-border">
               <input id="pac-input" class="controls form-control" type="text" placeholder="Search Box">
@@ -114,18 +161,13 @@
             </div>
           </form>
         </div>
-        <div class="col-4">
-          <div class="add-site-button">
-            <a href="/sites/new" class="btn btn-primary btn-round">Back</a>
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
+
    
 
+
     <%# <input id="pac-input" class="controls form-control" type="text" placeholder="Search Box"> %>
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
       <div id="map" ></div>
     <div>
     <script>
@@ -165,7 +207,10 @@
             return;
           }
 
-          // Clear out the old markers.
+          $(".name").focus().val(places[0]["name"])
+          $(".address").focus().val(places[0]["formatted_address"])
+          $(".phone_no").focus().val(places[0]["international_phone_number"])
+
           markers.forEach(function(marker) {
             marker.setMap(null);
           });
@@ -208,6 +253,7 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7rM2J5pDWxQYtZppEOV7P17CsaveY84k&libraries=places&callback=initAutocomplete"
          async defer></script>
+
 
     <%= render 'sites/admin' %>
   </body>
