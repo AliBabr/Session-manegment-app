@@ -64,4 +64,15 @@ class ManegersController < ApplicationController
     end
 
   end
+
+  def show
+    @site = Site.all
+  end
+  def search
+    if params[:sites][:name].present?
+      @site = Site.find(params[:sites][:name].to_i)
+    else
+      redirect_to action: 'index'
+    end
+  end
 end

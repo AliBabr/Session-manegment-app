@@ -1,7 +1,7 @@
 <div class="navbar-header">
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete  ,class: "logout-link" %>
   <h1 class="navbar-heading">Sites Manegement</h1>
-  <p class="sub-heading">New Maneger</p>
+  <p class="sub-heading">Adding New Manager</p>
 </div>
 
 
@@ -12,9 +12,15 @@
           <div class="card">
             <div class="card-header card-header-primary">
               <h4 class="card-title "><%= @site.name%></h4>
-              <p class="card-category"><%= @site.contact%></p>
-              <p class="card-category"><%= @site.address%></p>
-              <p class="card-category"></p>
+              <div class="row">
+                <a class="ml-3 mr-2"><img src="https://i.ibb.co/hmx05xT/Places.png" width="18px" height="18px" alt="location-icon" border="0"></a>
+                <p class="card-category"><%= @site.address%></p>
+              </div>
+              <div class="row">
+                <a class='ml-3 mr-2'><img src="https://i.ibb.co/fQwnxvb/Phone.png" width="18px" height="18px" alt="download" border="0"></a>
+                <p class="card-category"><%= @site.contact%></p>
+              </div>
+
             </div>
             <div class="card-body">
               <form action="/manegers?site_id=<%=@site.id%>" method="POST">

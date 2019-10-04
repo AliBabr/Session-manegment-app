@@ -1,4 +1,4 @@
-    <div class="wrapper ">
+   <div class="wrapper ">
       <div class="sidebar sidebar-image" data-color="purple" data-background-color="white" data-image="">
         <!--
           Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -7,30 +7,28 @@
       -->
         <div class="logo">
           <a href="dashboard" class="simple-text logo-normal">
-            <img src="https://i.ibb.co/z261rpn/logo-backgroung.png" width='200px' margin-legt='30px' alt="logo-backgroung" border="0" margin-legt='30px' />
+            <img  src="https://i.ibb.co/z261rpn/logo-backgroung.png" width='200px' margin-legt='38px'  alt="logo-backgroung" border="0" margin-legt='30px' />
           </a>
         </div>
         <div class="logo">
           <a href= "dashboard" class="simple-text logo-normal">
             <div class="row">
-              <div class="col-3">
-                <img src="https://i.ibb.co/fG602hk/user-icon.png"  width="60px" height="50px" alt="user" border="0" />
+              <div class="col-4">
+                <img class="set-image" src="https://i.ibb.co/DgV0wZk/1024px-User-icon-2-svg.png"  width="50px" height="50px" alt="user" border="0" />
               </div>
-              <div class="col-3">
+              <div class="col-8 set-content">
                 <div class = "row">
                   <div class="user-name">
                     <%=current_user.first_name + ' ' + current_user.last_name%>
+                  </div>
+                  <div class="supper-admin">
+                    (Super Admin)
                   </div>
                 </div>
                 <div class= 'row'>
                   <div class='user-email'>
                     <%=current_user.email%>
                   </div>
-                </div>
-              </div>
-              <div class='col-6'>
-                <div class="supper-admin">
-                  (Super Admin)
                 </div>
               </div>
             </div>

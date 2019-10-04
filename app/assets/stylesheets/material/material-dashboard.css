@@ -14684,7 +14684,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .sidebar .logo {
-  padding: 15px 0px;
+  padding: 5px 0px !important;
   margin: 0;
   display: block;
   position: relative;
@@ -14698,7 +14698,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   right: 15px;
   height: 1px;
   width: calc(100% - 30px);
-  background-color: rgba(180, 180, 180, 0.3);
+  background-color: rgba(47, 53, 97, 0.32) !important;
 }
 
 .sidebar .logo p {

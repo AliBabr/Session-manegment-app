@@ -1,17 +1,18 @@
 <div class="navbar-header">
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete  ,class: "logout-link" %>
-  <h1 class="navbar-heading">Sites Manegement</h1>
+  <h1 class="navbar-heading">Sites Management</h1>
   <p class="sub-heading">All sites</p>
 </div>
 
 
   <div class="search-seaction">
-    <div class="container-fluid">
       <div class="row">
-        <div class="col-12">
+        <div class="col-9">
           <%= render 'sites/search' %>
         </div>
-      </div>
+        <div class="col-3">
+          <a href="/sites/new" class="btn btn-primary btn-round pull-left ml-4">Add Site</a>
+        </div>
     </div>
   </div>
 
@@ -19,11 +20,6 @@
 
 <div class="content">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <a href="/sites/new" class="btn btn-primary btn-round pull-right mr-5">Add Site</a>
-        </div>
-      </div>
       <% @site.map do |s| %>
         <div class="row">
           <div class="col-md-12">
@@ -44,13 +40,14 @@
                   </div>
                 </div>
                 <div class="row">
-                  <a class='ml-3 mr-2'><img src="https://i.ibb.co/6v024Dc/phone.png" width="20px" height="18px" alt="download" border="0"></a>
-                  <p class="card-category"><%= s.contact%></p>
-                </div>
-                <div class="row">
-                  <a class="ml-3 mr-2"><img src="https://i.ibb.co/4FwmLzH/location-icon.png" width="20px" height="18px"width="20px" height="18px" alt="location-icon" border="0"></a>
+                  <a class="ml-3 mr-2"><img src="https://i.ibb.co/hmx05xT/Places.png" width="18px" height="18px" alt="location-icon" border="0"></a>
                   <p class="card-category"><%= s.address%></p>
                 </div>
+                <div class="row">
+                  <a class='ml-3 mr-2'><img src="https://i.ibb.co/fQwnxvb/Phone.png" width="18px" height="18px" alt="download" border="0"></a>
+                  <p class="card-category"><%= s.contact%></p>
+                </div>
+
               </div>
 
               <div class="card-body">

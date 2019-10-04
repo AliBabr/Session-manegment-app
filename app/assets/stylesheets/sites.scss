@@ -1,9 +1,9 @@
 .navbar-header {
   height: 75px;
-  background-image: linear-gradient(#26266f, #0c641e)
+  background-image: linear-gradient(#49528f, #058d4a)
 }
 .sidebar[data-color=purple] li.active>a {
-  background-color: #26266f;
+  background-color: #49528f;
   box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(156,39,176,.4);
 }
 .navbar-heading {
@@ -23,21 +23,24 @@
   MARGIN-TOP: -16PX;
 }
 .btn-primary {
-  background: #26266f !important;
+  background:  #49528f !important;
   color: white !important;
 }
 .add-manger-button{
   background: #1f9e1f  !important;
   float: right;
+  font-weight: 600;
+  font-family: inherit;
   margin-bottom: -40px;
 }
 
 .form-control, .is-focused .form-control {
-  background-image: linear-gradient(0deg,#09177b 2px,rgba(156,39,176,0) 0),linear-gradient(0deg,#d2d2d2 1px,hsla(0,0%,82%,0) 0);
+  background-image: linear-gradient(0deg, #49528f 2px,rgba(156,39,176,0) 0),linear-gradient(0deg,#d2d2d2 1px,hsla(0,0%,82%,0) 0);
 }
 
 .card-header-primary{
-  background: #26266f !important;
+  background:  #49528f !important;
+  color: white;
 }
 
 .container-fluid {
@@ -72,12 +75,13 @@
 .supper-admin {
   font-size: 10px;
   color: green;
-  margin-top: 2px; 
+  margin-top: 0px;
+  margin-left: 5px;
 }
 .user-email
 {
-  font-size: 9px;
-  margin-top: -5px;
+  font-size: 10px;
+  margin-top: -13px;
 
 }
 .select2-dropdown--below {
@@ -105,10 +109,42 @@
   left: 480px !important;
 }
 .search-button {
-  top: -6px;
-  margin-left: -40px;
+  height: 38px;
+  font-family: inherit;
+  font-weight: 600;
+  top: -5px;
+  margin-left: -65px;
 }
 
 .main-panel>.content {
   margin-top: 0px !important;
+}
+.set-content {
+  margin-left: -14px;
+}
+.set-image {
+  margin-left: 8px;
+}
+.set-search-bar{
+  margin-left: 15px;
+}
+.select2-selection--single {
+  width: 400px !important;
+}
+.select2-selection__arrow {
+  left: 380px !important;
+}
+.card-title {
+  font-size: 22px;
+  font-weight: 400;
+}
+.card-category{
+  font-weight: 500;
+  color: white !important;
+  font-family: inherit;
+}
+.btn-round {
+  font-weight: 600;
+  font-family: inherit;
+  top: -6px;
 }

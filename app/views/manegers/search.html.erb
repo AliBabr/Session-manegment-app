@@ -21,7 +21,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title ">All Managers</h4>
+              <h4 class="card-title ">Managers of <%= @site.name%></h4>
 
             </div>
 
@@ -50,36 +50,34 @@
                   </thead>
                   <tbody>
                     <%@index = 1%>
-                    <% @site.map do |s| %>
-                      <% s.users.each_with_index do |u,i| %>
-                        <tr>
-                          <td>
-                            <%= @index%>
-                          </td>
-                          <td>
-                            <%= u.first_name + " "+ u.last_name%>
-                          </td>
-                          <td>
-                            <%= s.name%>
-                          </td>
-                          <td>
-                            <%= u.email%>
-                          </td>
-                          <td>
-                            <%= u.view_password%>
-                          </td>
-                          <td class="text-primary"> 
-                          <a href = "manegers/<%=u.id%>/edit?site_id=<%=s.id%>">
-                            <img src="https://i.ibb.co/hFHxCxN/edit.png" height="40px" width="40px" alt="edit" border="0">
-                          </a>
-                          <%= link_to '<img src="https://i.ibb.co/QK8ycft/delete.png" height="45px" width="45px" alt="delete" border="0">'.html_safe, delete_manager_maneger_path(u.id), class: 'delete-action', data: { confirm: 'Are you sure?', method: :delete } %>
+                    <% @site.users.each_with_index do |u,i| %>
+                      <tr>
+                        <td>
+                          <%= @index%>
                         </td>
-                          <%@index = @index + 1%>
-                
-                          <%# <%= u.encrypted_password    %>
-                          </td>
-                        </tr>
-                      <%end%>
+                        <td>
+                          <%= u.first_name + " "+ u.last_name%>
+                        </td>
+                        <td>
+                          <%= @site.name%>
+                        </td>
+                        <td>
+                          <%= u.email%>
+                        </td>
+                        <td>
+                          <%= u.view_password%>
+                        </td>
+                        <td class="text-primary"> 
+                        <a href = "/manegers/<%=u.id%>/edit?site_id=<%=@site.id%>">
+                          <img src="https://i.ibb.co/hFHxCxN/edit.png" height="40px" width="40px" alt="edit" border="0">
+                        </a>
+                        <%= link_to '<img src="https://i.ibb.co/QK8ycft/delete.png" height="45px" width="45px" alt="delete" border="0">'.html_safe, delete_manager_maneger_path(u.id), class: 'delete-action', data: { confirm: 'Are you sure?', method: :delete } %>
+                      </td>
+                        <%@index = @index + 1%>
+              
+                        <%# <%= u.encrypted_password    %>
+                        </td>
+                      </tr>
                     <%end%>
                   </tbody>
                 </table>

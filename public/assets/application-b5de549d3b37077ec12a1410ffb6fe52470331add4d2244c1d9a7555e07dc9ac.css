@@ -35404,7 +35404,7 @@ iframe {
 
 /* line 25, /home/babar/projects/App/app/assets/stylesheets/sites.scss */
 .btn-primary {
-  background: #26266f !important;
+  background:  #49528f !important;
   color: white !important;
 }
 
@@ -35421,7 +35421,8 @@ iframe {
 
 /* line 38, /home/babar/projects/App/app/assets/stylesheets/sites.scss */
 .card-header-primary {
-  background: #26266f !important;
+  background:  #49528f !important;
+  color: white;
 }
 
 /* line 42, /home/babar/projects/App/app/assets/stylesheets/sites.scss */

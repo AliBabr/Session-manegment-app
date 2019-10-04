@@ -17,6 +17,9 @@ end
       post :update_manager
       delete :delete_manager
     end
+    collection do
+      post :search
+    end
   end
   resources :sites do
     collection do
